@@ -1,0 +1,4 @@
+{
+    "connectionString": "mongodb://chesen:lolita123@172.16.119.1/admin",
+    "secret": "Es un secreto"
+}
