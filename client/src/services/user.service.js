@@ -3,7 +3,8 @@ import { authHeader } from '../helpers';
 export const userService = {
     login,
     logout,
-    getAll
+    getAll,
+    signup
 };
 
 function login(username, password) {
@@ -13,7 +14,7 @@ function login(username, password) {
         body: JSON.stringify({ username, password })
     };
 
-    return fetch(`http://localhost:4000/users/authenticate`, requestOptions)
+    return fetch('http://localhost:3000/users/authenticate', requestOptions)
         .then(handleResponse)
         .then(user => {
             // login successful if there's a jwt token in the response
@@ -24,6 +25,18 @@ function login(username, password) {
 
             return user;
         });
+}
+
+function signup(username, password) {
+    const requestOptions = {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ username, password })
+    };
+
+    return fetch('http://localhost:3000/users/register', requestOptions)
+    .then(handleResponse);
+
 }
 
 function logout() {
@@ -37,17 +50,17 @@ function getAll() {
         headers: authHeader()
     };
 
-    return fetch(`http://localhost:4000/users`, requestOptions).then(handleResponse);
+    return fetch('http://localhost:3000/users', requestOptions).then(handleResponse);
 }
 
 function handleResponse(response) {
+    console.log('response', response);
     return response.text().then(text => {
         const data = text && JSON.parse(text);
         if (!response.ok) {
             if (response.status === 401) {
                 // auto logout if 401 response returned from api
                 logout();
-                location.reload(true);
             }
 
             const error = (data && data.message) || response.statusText;

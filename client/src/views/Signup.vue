@@ -1,10 +1,6 @@
 <template>
   <div>
-    <div class="alert alert-info">
-      Username: test<br />
-      Password: test
-    </div>
-    <h2>Login</h2>
+    <h2>Sign Up</h2>
     <form @submit.prevent="handleSubmit">
       <div class="form-group">
         <label for="username">Username</label>
@@ -33,15 +29,10 @@
         </div>
       </div>
       <div class="form-group">
-        <button class="btn btn-primary" :disabled="loggingIn">Login</button>
+        <button class="btn btn-primary" :disabled="loggingIn">Sign Up</button>
         <img
           v-show="loggingIn"
         />
-      </div>
-      <div class="form-group">
-        <router-link to='/signup'>
-        <button class="btn btn-primary">Sign Up</button>
-        </router-link>
       </div>
     </form>
   </div>
@@ -71,7 +62,7 @@ export default {
       const { username, password } = this;
       const { dispatch } = this.$store;
       if (username && password) {
-        dispatch("authentication/login", { username, password });
+        dispatch("authentication/signup", { username, password });
       }
     },
   },

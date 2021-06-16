@@ -25,6 +25,20 @@ export const authentication = {
                     }
                 );
         },
+        signup({dispatch, commit}, {username, password}){
+            commit('registerRequest', {username});
+            userService.signup(username, password)
+            .then(
+                user => {
+                    commit('registerSuccess', user);
+                    router.push('/login');
+                },
+                error => {
+                    commit('registerFailure', error);
+                    dispatch('alert/error', error, {root: true});
+                }
+            );
+        },
         logout({ commit }) {
             userService.logout();
             commit('logout');
@@ -40,6 +54,18 @@ export const authentication = {
             state.user = user;
         },
         loginFailure(state) {
+            state.status = {};
+            state.user = null;
+        },
+        registerRequest(state, user) {
+            state.status = {loggingIn: true};
+            state.user = user;
+        },
+        registerSuccess(state, user) {
+            state.status = { loggedIn: true };
+            state.user = user;
+        },
+        registerFailure(state) {
             state.status = {};
             state.user = null;
         },
