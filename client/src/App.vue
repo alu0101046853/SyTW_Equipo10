@@ -29,5 +29,5 @@ export default {
   },
 };
 </script>
-<style lang="postcss">
+<style scopped>
 </style>

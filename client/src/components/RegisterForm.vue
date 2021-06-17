@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="register">
   <v-form
     ref="form"
     v-model="valid"
@@ -10,6 +10,13 @@
       name="username"
       label="Usuario"
       required
+    ></v-text-field>
+
+    <v-text-field
+      v-model="email"
+      :rules="[rules.email]"
+      label="E-mail"
+      name="email"
     ></v-text-field>
 
     <v-text-field
@@ -51,7 +58,7 @@
 
 <script>
 export default {
-  name: "LoginForm",
+  name: "RegisterForm",
   data() {
     return {
       show1: "",
@@ -80,7 +87,7 @@ export default {
       const { username, password } = this;
       const { dispatch } = this.$store;
       if (username && password) {
-        dispatch("authentication/login", { username, password });
+        dispatch("authentication/signup", { username, password });
       }
     },
     validate () {
