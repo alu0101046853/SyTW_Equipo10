@@ -19,11 +19,11 @@
                 <v-list-item @click="() => {}">
                   <v-list-item-title>Perfil</v-list-item-title>
                 </v-list-item>
-                <router-link to="/login"
-                  ><v-list-item @click="() => {}">
+                <router-link to="/login">
+                  <v-list-item @click="() => {}">
                     <v-list-item-title>Cerrar sesión</v-list-item-title>
-                  </v-list-item></router-link
-                >
+                  </v-list-item>
+                </router-link>
               </v-list>
             </v-menu>
           </v-app-bar>
