@@ -38,8 +38,7 @@ async function create(userParam) {
         throw 'Username "' + userParam.username + '" is already taken';
     }
 
-    const user = new User;
-    user.username = userParam.username;
+    const user = new User(userParam);
     // hash password
     if (userParam.password) {
         user.hash = bcrypt.hashSync(userParam.password, 10);

@@ -14,6 +14,12 @@
     ></v-text-field>
 
     <v-text-field
+      v-model="name"
+      name="name"
+      label="Nombre"
+    ></v-text-field>
+
+    <v-text-field
       v-model="email"
       :rules="[rules.email]"
       label="E-mail"
@@ -36,7 +42,7 @@
       class="mr-4"
       @click="handleSubmit"
     >
-      Log in
+      Sign Up
     </v-btn>
 
     <v-btn
@@ -44,14 +50,14 @@
       class="mr-4"
       @click="reset"
     >
-      Reset Form
+      Resetear Formulario
     </v-btn>
 
     <v-btn
       color="warning"
       @click="resetValidation"
     >
-      Reset Validation
+      Resetear Validación
     </v-btn>
   </v-form>
   </v-app>
@@ -66,6 +72,7 @@ export default {
       show1: "",
       valid: true,
       username: "",
+      name: "",
       email: '',
       password: "",
       submitted: false,
@@ -86,10 +93,10 @@ export default {
   methods: {
     handleSubmit() {
       this.submitted = true;
-      const { username, password } = this;
+      const { username, password, name, email } = this;
       const { dispatch } = this.$store;
       if (username && password) {
-        dispatch("authentication/signup", { username, password });
+        dispatch("authentication/signup", { username, password, name, email });
       }
     },
     validate () {
@@ -107,6 +114,6 @@ export default {
 
 <style>
 .register{
-  max-height: 16rem;
+  max-height: 20rem;
 }
 </style>
