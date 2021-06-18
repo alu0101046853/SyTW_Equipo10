@@ -1,6 +1,6 @@
 <template>
   <header>
-    <div id="app">
+    <div class="app">
       <v-app id="inspire">
         <div>
           <v-app-bar color="amber" dense darken-2>
@@ -8,7 +8,7 @@
 
             <v-spacer></v-spacer>
 
-            <v-menu left bottom>
+            <v-menu v-if="user" left bottom>
               <template v-slot:activator="{ on, attrs }">
                 <v-btn icon v-bind="attrs" v-on="on">
                   <v-icon>mdi-account</v-icon>
@@ -54,7 +54,7 @@ export default {
 </script>
 
 <style lang="postcss">
-#app {
+.app {
   height: 3rem;
 }
 </style>

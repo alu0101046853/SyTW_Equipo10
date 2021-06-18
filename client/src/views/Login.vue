@@ -1,8 +1,13 @@
 <template>
-  <v-container fill-height class="flex-column mt-5">
+  <v-container fill-height class="flex-column mt-5" border>
     <login-form></login-form>
     <router-link class="link mt-3" to='/signup'>
-      ¿No tiene Cuenta?, Registrese Aquí
+      <v-btn
+      rounded
+      dark
+      >
+        ¿No tiene Cuenta?, Registrese Aquí
+      </v-btn>
     </router-link>
   </v-container>
 </template>
@@ -19,4 +24,8 @@ export default {
 </script>
 
 <style scopped>
+.container {
+  max-width: 30rem;
+  max-height: 45rem;
+}
 </style>
