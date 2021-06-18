@@ -37,14 +37,14 @@
       class="mr-3"
       @click="reset"
     >
-      Reset Form
+      Resetear Formulario
     </v-btn>
 
     <v-btn
       color="warning"
       @click="resetValidation"
     >
-      Reset Validation
+      Resetear Validación
     </v-btn>
   </v-form>
   </v-app>

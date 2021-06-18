@@ -27,11 +27,11 @@ function login(username, password) {
         });
 }
 
-function signup(username, password) {
+function signup(username, password, name, email) {
     const requestOptions = {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ username, password })
+        body: JSON.stringify({ username, password, name, email })
     };
 
     return fetch('http://localhost:3000/users/register', requestOptions)
@@ -54,7 +54,6 @@ function getAll() {
 }
 
 function handleResponse(response) {
-    console.log('response', response);
     return response.text().then(text => {
         const data = text && JSON.parse(text);
         if (!response.ok) {

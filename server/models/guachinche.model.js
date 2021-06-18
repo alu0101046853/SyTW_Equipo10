@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 const schema = new Schema({
     name: { type: String, required: true },
-    localication: { type: String, required: true },
+    location: { type: String, required: true },
     hour: { type: String },
     phone: { type: Number },
     delivery: { type: Boolean },

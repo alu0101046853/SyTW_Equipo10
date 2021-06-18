@@ -25,13 +25,12 @@ export const authentication = {
                     }
                 );
         },
-        signup({dispatch, commit}, {username, password}){
-            commit('registerRequest', {username});
-            userService.signup(username, password)
+        signup({dispatch, commit}, {username, password, name, email}){
+            userService.signup(username, password, name, email)
             .then(
-                user => {
-                    commit('registerSuccess', user);
-                    router.push('/login');
+                () => {
+                    dispatch('alert/success', "Usuario creado con exito", {root: true});
+                    setTimeout(()=>{router.push('/login')}, 1250);
                 },
                 error => {
                     commit('registerFailure', error);
@@ -56,14 +55,6 @@ export const authentication = {
         loginFailure(state) {
             state.status = {};
             state.user = null;
-        },
-        registerRequest(state, user) {
-            state.status = {loggingIn: true};
-            state.user = user;
-        },
-        registerSuccess(state, user) {
-            state.status = { loggedIn: true };
-            state.user = user;
         },
         registerFailure(state) {
             state.status = {};

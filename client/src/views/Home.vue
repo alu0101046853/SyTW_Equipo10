@@ -1,38 +1,37 @@
 <template>
   <div>
-    <div>
-      <h1>Hi {{ user.firstName }}!</h1>
-      <p>You're logged in with Vue + Vuex & JWT!!</p>
-      <h3 class="">Users from secure api end point:</h3>
-      <em v-if="users.loading">Loading users...</em>
-      <span v-if="users.error" class="text-danger"
-        >ERROR: {{ users.error }}</span
-      >
-      <ul v-if="users.items">
-        <li v-for="user in users.items" :key="user.id">
-          {{ user.username }}
-        </li>
-      </ul>
-    </div>
+    <carousel class="carousel"></carousel>
+    <guachinches class="guachinches"></guachinches>
   </div>
 </template>
 
 <script>
+import Carousel from '@/components/Carousel.vue'
+import Guachinches from '@/components/Guachinches.vue'
 export default {
   name: "Home",
-  components: {},
+  components: {
+    Carousel,
+    Guachinches
+  },
   computed: {
     user() {
       return this.$store.state.authentication.user;
     },
-    users() {
-      return this.$store.state.users.all;
+    guachinches() {
+      return this.$store.state.guachinches.all;
     },
   },
   created() {
-    this.$store.dispatch("users/getAll");
+    this.$store.dispatch("guachinches/getAll");
   },
 };
 </script>
-<style lang="postcss">
+<style scoped>
+.carousel{
+  max-height: 40rem;
+}
+.guachinches{
+  max-height: 40rem;
+}
 </style>
