@@ -1,5 +1,6 @@
 <template>
   <div>
+  <v-app class="inspire">
   <v-form
     ref="form"
     v-model="valid"
@@ -24,28 +25,29 @@
 
     <v-btn
       :disabled="!valid"
-      color="green"
-      class="mr-4"
+      color="success"
+      class="mr-3"
       @click="handleSubmit"
     >
       Log in
     </v-btn>
 
     <v-btn
-      color="red"
-      class="mr-4"
+      color="error"
+      class="mr-3"
       @click="reset"
     >
       Reset Form
     </v-btn>
 
     <v-btn
-      color="yellow"
+      color="warning"
       @click="resetValidation"
     >
       Reset Validation
     </v-btn>
   </v-form>
+  </v-app>
   </div>
 </template>
 
@@ -57,7 +59,6 @@ export default {
       show1: "",
       valid: true,
       username: "",
-      email: '',
       password: "",
       submitted: false,
       rules: {
@@ -96,5 +97,8 @@ export default {
 }
 </script>
 
-<style>
+<style scopped>
+.inspire{
+  max-height: 12rem;
+}
 </style>

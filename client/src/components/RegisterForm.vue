@@ -1,5 +1,6 @@
 <template>
-  <div id="register">
+  <div class="register">
+  <v-app>
   <v-form
     ref="form"
     v-model="valid"
@@ -31,7 +32,7 @@
 
     <v-btn
       :disabled="!valid"
-      color="green"
+      color="success"
       class="mr-4"
       @click="handleSubmit"
     >
@@ -39,7 +40,7 @@
     </v-btn>
 
     <v-btn
-      color="red"
+      color="error"
       class="mr-4"
       @click="reset"
     >
@@ -47,12 +48,13 @@
     </v-btn>
 
     <v-btn
-      color="yellow"
+      color="warning"
       @click="resetValidation"
     >
       Reset Validation
     </v-btn>
   </v-form>
+  </v-app>
   </div>
 </template>
 
@@ -104,4 +106,7 @@ export default {
 </script>
 
 <style>
+.register{
+  max-height: 16rem;
+}
 </style>
