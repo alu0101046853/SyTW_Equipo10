@@ -1,7 +1,7 @@
 <template>
-  <v-container fill-height class="flex-column mt-5" border>
-    <create-form></create-form> 
-  </v-container>
+  <div class="guachinche-view">
+    <create-form></create-form>
+  </div>
 </template>
 
 <script>
@@ -10,14 +10,14 @@ import CreateForm from "@/components/CreateForm";
 export default {
   name: "GuachincheRegister",
   components: {
-    CreateForm
+    CreateForm,
   },
 };
 </script>
 
 <style scoped>
-.container {
-  max-width: 50rem;
-  max-height: 60rem;
+.guachinche-view {
+  width: 100%;
+  background: linear-gradient(180deg, #f50057, #4141bb);
 }
 </style>
