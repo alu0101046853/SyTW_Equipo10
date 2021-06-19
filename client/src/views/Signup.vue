@@ -1,15 +1,8 @@
 <template>
-  <v-container fill-height class="flex-column mt-5" border>
+  <v-container class="container" >
     <register-form></register-form> 
-    <router-link to='/login' class="link mt-3">
-    <v-btn
-      rounded
-      dark
-    >
-      Si ya tienes Cuenta, Inicia sesion Aquí
-    </v-btn> 
-    </router-link>
   </v-container>
+
 </template>
 
 <script>
@@ -25,7 +18,9 @@ export default {
 
 <style scoped>
 .container {
-  max-width: 45rem;
-  max-height: 50rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
 }
 </style>
