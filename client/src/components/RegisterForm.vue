@@ -5,63 +5,68 @@
         ref="form"
         v-model="valid"
         lazy-validation
-      >
-      <v-text-field
-        v-model="username"
-        name="username"
-        label="Usuario"
-        required
-      ></v-text-field>
+        class="form">
 
-      <v-text-field
-        v-model="name"
-        name="name"
-        label="Nombre"
-      ></v-text-field>
+        <div class="circle-and-text-container">
+          <div class="circle">
+           <v-icon x-large color="white">mdi-account-outline</v-icon> 
+          </div>
+          <router-link to="/login" class="link">¿Ya tienes una cuenta?</router-link>
+        </div>
 
-      <v-text-field
-        v-model="email"
-        :rules="[rules.email]"
-        label="E-mail"
-        name="email"
-      ></v-text-field>
+        <div class="input-container">
+          <v-text-field
+            v-model="username"
+            name="username"
+            label="Usuario"
+            class="form-item ma-0 pa-1"
+            required>
+         </v-text-field>
 
-      <v-text-field
-        v-model="password"
-        :append-icon="show1 ? 'mdi-eye' : 'mdi-eye-off'"
-        :type="show1 ? 'text' : 'password'"
-        name="password"
-        label="Contraseña"
-        required
-        @click:append="show1 = !show1"
-      ></v-text-field>
+         <v-text-field
+           v-model="name"
+           name="name"
+           class="form-item ma-0 pa-1"
+           label="Nombre">
+         </v-text-field>
 
-      <v-btn
-        :disabled="!valid"
-        color="success"
-        class="mr-4"
-        @click="handleSubmit"
-      >
-        Sign Up
-      </v-btn>
+        <v-text-field
+          v-model="email"
+          :rules="[rules.email]"
+          label="E-mail"
+          class="form-item ma-0 pa-1"
+          name="email">
+        </v-text-field>
 
-      <v-btn
-        color="error"
-        class="mr-4"
-        @click="reset"
-      >
-        Resetear Formulario
-      </v-btn>
+        <v-text-field
+          v-model="password"
+          :append-icon="show1 ? 'mdi-eye' : 'mdi-eye-off'"
+          :type="show1 ? 'text' : 'password'"
+          name="password"
+          label="Contraseña"
+          class="form-item ma-0 pa-1"
+          required
+          @click:append="show1 = !show1">
+        </v-text-field>
 
-      <v-btn
-        color="warning"
-        @click="resetValidation"
-      >
-        Resetear Validación
-      </v-btn>
-      </v-form>
-    </v-app>
-  </div>
+        <div class="button-container">
+          <v-btn
+            :disabled="!valid"
+            class="sign-button"
+            color="#862d59"
+            @click="handleSubmit"> Sign Up
+          </v-btn>
+
+          <v-btn
+            color="#862d59"
+            class="sign-button"
+            @click="reset"> Resetear Formulario
+          </v-btn>    
+        </div>
+      </div>
+    </v-form>
+  </v-app>
+</div>
 </template>
 
 <script>
@@ -112,7 +117,65 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
+.form {
+  width: 30rem;
+  height: 26rem;
+
+  border: 2px solid black;
+  border-radius: 5%;
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0 5px rgb(66, 66, 66);
+}
+
+.circle-and-text-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  margin-bottom: 5px;
+}
+
+.circle {
+  width: 5rem;
+  height: 5rem;
+
+  border-radius: 50%;
+
+  background:  #862d59;
+  box-shadow: 0 0 5px rgb(66, 66, 66);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.circle-and-text-container .link{
+  color:  #862d59;
+}
+
+.form .input-container {
+  width: 70%;
+}
+
+.button-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  position: relative;
+  z-index: 9;
+}
+
+.sign-button {
+  color: white;
+}
+
 .register{
   max-height: 20rem;
 }
