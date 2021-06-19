@@ -17,7 +17,7 @@ export default {
 
 <style scoped>
 .container {
-  max-width: 45rem;
-  max-height: 50rem;
+  max-width: 50rem;
+  max-height: 60rem;
 }
 </style>

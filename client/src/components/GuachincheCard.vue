@@ -1,66 +1,52 @@
 <template>
 <div>
     <v-card
-    :loading="loading"
     class="mx-auto my-12"
-    max-width="374"
+    max-width="420"
+    max-height="840"
   >
-    <template slot="progress">
-      <v-progress-linear
-        color="deep-purple"
-        height="10"
-        indeterminate
-      ></v-progress-linear>
-    </template>
     <v-img
       height="250"
-      src="https://cdn.vuetifyjs.com/images/cards/cooking.png"
+      :src="data.image"
     ></v-img>
 
     <v-card-title>{{data.name}}</v-card-title>
 
     <v-card-text>
-      <v-row
-        align="center"
-        class="mx-0"
-      >
-        <v-rating
-          :value="4.5"
-          color="amber"
-          dense
-          half-increments
-          readonly
-          size="14"
-        ></v-rating>
-
-        <div class="grey--text ms-4">
-          4.5 (413)
-        </div>
-      </v-row>
 
       <div class="my-4 text-subtitle-1">
-        $ • Italian, Cafe
+        {{data.location}}
       </div>
 
-      <div>Small plates, salads & sandwiches - an intimate setting with 12 indoor seats plus patio seating.</div>
+      <div>{{data.description}}</div>
     </v-card-text>
-
+        <v-card-text>
+      <v-icon>mdi-phone</v-icon>
+      {{data.phone}}
+      </v-card-text>
     <v-divider class="mx-4"></v-divider>
-    <v-card-title>Tonight's availability</v-card-title>
+    <v-card-title>Horarios</v-card-title>
     <v-card-text>
       <v-chip-group
         v-model="selection"
         active-class="deep-purple accent-4 white--text"
         column
       >
-        <v-chip>5:30PM</v-chip>
-
-        <v-chip>7:30PM</v-chip>
-
-        <v-chip>8:00PM</v-chip>
-
-        <v-chip>9:00PM</v-chip>
+        <v-chip>{{data.hour}}</v-chip>
       </v-chip-group>
+    </v-card-text>
+    <v-card-text v-if="user.username === 'chacho'">
+      <v-btn
+      class="m-15"
+      dark
+      color="error"
+      @click="handleDelete"
+    >
+      <v-icon>
+        mdi-delete
+      </v-icon>
+      Borrar Guachinche
+    </v-btn>
     </v-card-text>
   </v-card>
 </div>
@@ -72,8 +58,33 @@ export default {
   props:{
       data:{
           name: String,
+          location: String,
+          description: String,
+          hour: String,
+          phone: String,
+          delivery: Boolean,
+          image: String,
+          id: String,
       }
-  }
+  },
+  data() {
+    return {
+      selection: "",
+      loading: ""
+    }
+  },
+  methods: {
+    handleDelete() {
+      const {id} = this.data;
+      const {dispatch} = this.$store;
+      dispatch("guachinches/_delete", {id});
+    }
+  },
+  computed: {
+    user() {
+      return this.$store.state.authentication.user;
+    }
+  },
 };
 </script>
 <style scoped>
