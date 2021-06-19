@@ -18,10 +18,11 @@
               </template>
 
               <v-list>
-                <v-list-item-group active-class="border" color="red">
+                <router-link :to="`/user/${user.id}`">
                 <v-list-item @click="() => {}">
                   <v-list-item-title>Perfil</v-list-item-title>
                 </v-list-item>
+                 </router-link>
                 <router-link to="/guachincheregister" v-if="user.username==='chacho'">
                   <v-list-item>
                     <v-list-item-title>Crear Guachinche</v-list-item-title>
@@ -32,7 +33,6 @@
                     <v-list-item-title>Cerrar sesión</v-list-item-title>
                   </v-list-item>
                 </router-link>
-                </v-list-item-group>
               </v-list>
             </v-menu>
           </v-app-bar>
