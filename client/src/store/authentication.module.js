@@ -29,11 +29,35 @@ export const authentication = {
             userService.signup(username, password, name, email)
             .then(
                 () => {
-                    dispatch('alert/success', "Usuario creado con exito", {root: true});
+                    dispatch('alert/success', "Usuario creado con éxito", {root: true});
                     setTimeout(()=>{router.push('/login')}, 1250);
                 },
                 error => {
                     commit('registerFailure', error);
+                    dispatch('alert/error', error, {root: true});
+                }
+            );
+        },
+        update({dispatch}, {username, name, email, id}){
+            userService.update(username, name, email, id)
+            .then(
+                () => {
+                    dispatch('alert/success', "Usuario actualizado con éxito", {root: true});
+                    setTimeout(()=>{router.push('/login')}, 1250);
+                },
+                error => {
+                    dispatch('alert/error', error, {root: true});
+                }
+            );
+        },
+        _delete({dispatch}, {id}){
+            userService._delete(id)
+            .then(
+                () => {
+                    dispatch('alert/success', "Usuario borrado con éxito", {root: true});
+                    setTimeout(()=>{router.push('/login')}, 1250);
+                },
+                error => {
                     dispatch('alert/error', error, {root: true});
                 }
             );
