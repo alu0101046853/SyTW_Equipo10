@@ -6,13 +6,13 @@
 </template>
 
 <script>
-import Carousel from '@/components/Carousel.vue'
-import Guachinches from '@/components/Guachinches.vue'
+import Carousel from "@/components/Carousel.vue";
+import Guachinches from "@/components/Guachinches.vue";
 export default {
   name: "Home",
   components: {
     Carousel,
-    Guachinches
+    Guachinches,
   },
   computed: {
     user() {
@@ -28,10 +28,10 @@ export default {
 };
 </script>
 <style scoped>
-.carousel{
+.carousel {
   max-height: 40rem;
 }
-.guachinches{
+.guachinches {
   max-height: 40rem;
 }
 </style>
