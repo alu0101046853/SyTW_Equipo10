@@ -19,6 +19,41 @@
       required
     ></v-text-field>
 
+      <v-textarea
+      v-model="description"
+      label="Descripción del Guachinche"
+      name="description"
+      required
+    ></v-textarea>
+
+    <v-textarea
+      v-model="hour"
+      label="Horario"
+      name="hour"
+      required
+    ></v-textarea>
+
+    <v-text-field
+      v-model="phone"
+      label="Telefono de Contacto"
+      name="phone"
+      required
+    ></v-text-field>
+
+      <v-switch
+      v-model="delivery"
+      label="Envio a domicilio"
+      name="delivery"
+      required 
+      ></v-switch>
+
+      <v-text-field
+      v-model="image"
+      label="Introduzca la URL de la imagen de su guachinche"
+      name="image"
+      required
+    ></v-text-field>
+
     <v-btn
       color="success"
       class="mr-4"
@@ -53,10 +88,10 @@ export default {
   methods: {
     handleSubmit() {
       this.submitted = true;
-      const { name, location } = this;
+      const { name, location, hour, phone, delivery, image, description } = this;
       const { dispatch } = this.$store;
       if (name && location) {
-        dispatch("guachinches/create", { name,location });
+        dispatch("guachinches/create", { name,location,hour, phone, delivery, image, description });
       }
     },
     reset () {
@@ -68,6 +103,8 @@ export default {
 
 <style>
 .creation{
-  max-height: 16rem;
+  width: 30rem;
+  max-width: 50rem;
+  max-height: 45rem;
 }
 </style>

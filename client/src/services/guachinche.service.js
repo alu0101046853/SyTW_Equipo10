@@ -4,15 +4,25 @@ export const guachincheService = {
     logout,
     getAll,
     create,
+    _delete
 };
 
-function create (name,location) {
+function create (name, location, hour, phone, delivery, image, description) {
     const requestOptions = {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name, location })
+        body: JSON.stringify({ name, location, hour, phone, delivery, image, description })
     };
     return fetch('http://localhost:3000/guachinches/register', requestOptions)
+    .then(handleResponse);
+}
+
+function _delete(id){
+    const requestOptions = {
+        method: 'DELETE',
+        headers: authHeader()
+    };
+    return fetch(`http://localhost:3000/guachinches/${id}`, requestOptions)
     .then(handleResponse);
 }
 

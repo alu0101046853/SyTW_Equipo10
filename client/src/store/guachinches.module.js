@@ -16,9 +16,21 @@ export const guachinches = {
                     error => commit('getAllFailure', error)
                 );
         },
-        create({dispatch, commit}, {name, location}){
+        _delete({dispatch, commit}, {id}){
+            guachincheService._delete(id)
+            .then(
+                guachinche => {
+                    commit('deleteSuccess', guachinche, id)
+                    dispatch('alert/success', "Guachinche borrado con éxito", {root: true});
+                },
+                error => {
+                    dispatch('alert/error', error, {root: true});
+                }
+            );
+        },
+        create({dispatch, commit}, {name, location, hour, phone, delivery, image, description}){
             commit('createRequest', {name});
-            guachincheService.create(name, location)
+            guachincheService.create(name, location, hour, phone, delivery, image, description)
             .then(
                 () => {
                     dispatch('alert/success', "Guachinche creado con exito", {root: true});
@@ -49,6 +61,10 @@ export const guachinches = {
         },
         createFailure(state) {
             state.status = {}
+        },
+        deleteSuccess(state, id) {
+            const itemIndex = state.all.items.findIndex((item) => item.id === id);
+            state.all.items.splice(itemIndex, 1);
         }
     }
 }
