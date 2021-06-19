@@ -1,16 +1,31 @@
 <template>
-  <div>
-    <login-form> </login-form> 
-  </div>
+  <v-container fill-height class="flex-column mt-5" border>
+    <register-form></register-form> 
+    <router-link to='/login' class="link mt-3">
+    <v-btn
+      rounded
+      dark
+    >
+      Si ya tienes Cuenta, Inicia sesion Aquí
+    </v-btn> 
+    </router-link>
+  </v-container>
 </template>
 
 <script>
-import LoginForm from "@/components/LoginForm";
+import RegisterForm from "@/components/RegisterForm";
 
 export default {
   name: "SignUp",
   components: {
-    LoginForm
+    RegisterForm
   },
 };
 </script>
+
+<style scoped>
+.container {
+  max-width: 45rem;
+  max-height: 50rem;
+}
+</style>

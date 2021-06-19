@@ -1,6 +1,6 @@
 <template>
-  <div>
-  <v-app class="inspire">
+  <div class="register">
+  <v-app>
   <v-form
     ref="form"
     v-model="valid"
@@ -11,6 +11,19 @@
       name="username"
       label="Usuario"
       required
+    ></v-text-field>
+
+    <v-text-field
+      v-model="name"
+      name="name"
+      label="Nombre"
+    ></v-text-field>
+
+    <v-text-field
+      v-model="email"
+      :rules="[rules.email]"
+      label="E-mail"
+      name="email"
     ></v-text-field>
 
     <v-text-field
@@ -26,15 +39,15 @@
     <v-btn
       :disabled="!valid"
       color="success"
-      class="mr-3"
+      class="mr-4"
       @click="handleSubmit"
     >
-      Log in
+      Sign Up
     </v-btn>
 
     <v-btn
       color="error"
-      class="mr-3"
+      class="mr-4"
       @click="reset"
     >
       Resetear Formulario
@@ -53,12 +66,14 @@
 
 <script>
 export default {
-  name: "LoginForm",
+  name: "RegisterForm",
   data() {
     return {
       show1: "",
       valid: true,
       username: "",
+      name: "",
+      email: '',
       password: "",
       submitted: false,
       rules: {
@@ -78,10 +93,10 @@ export default {
   methods: {
     handleSubmit() {
       this.submitted = true;
-      const { username, password } = this;
+      const { username, password, name, email } = this;
       const { dispatch } = this.$store;
       if (username && password) {
-        dispatch("authentication/login", { username, password });
+        dispatch("authentication/signup", { username, password, name, email });
       }
     },
     validate () {
@@ -97,8 +112,8 @@ export default {
 }
 </script>
 
-<style scopped>
-.inspire{
-  max-height: 12rem;
+<style>
+.register{
+  max-height: 20rem;
 }
 </style>

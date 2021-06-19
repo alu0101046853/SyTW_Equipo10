@@ -10,7 +10,7 @@ Vue.use(VueFormulate);
 
 new Vue({
   store,
-  router,
   vuetify,
+  router,
   render: h => h(App)
 }).$mount("#app");

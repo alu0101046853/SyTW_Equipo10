@@ -13,6 +13,7 @@ app.use(jwt());
 
 // api routes
 app.use('/users', require('./users/user.controller'));
+app.use('/guachinches', require('./guachinches/guachinche.controller'));
 
 // global error handler
 app.use(errorHandler);

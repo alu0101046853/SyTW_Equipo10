@@ -4,7 +4,9 @@ export const userService = {
     login,
     logout,
     getAll,
-    signup
+    signup,
+    _delete,
+    update,
 };
 
 function login(username, password) {
@@ -27,11 +29,11 @@ function login(username, password) {
         });
 }
 
-function signup(username, password) {
+function signup(username, password, name, email) {
     const requestOptions = {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ username, password })
+        body: JSON.stringify({ username, password, name, email })
     };
 
     return fetch('http://localhost:3000/users/register', requestOptions)
@@ -39,6 +41,29 @@ function signup(username, password) {
 
 }
 
+function update(username, name, email, id) {
+    const userAuth = authHeader();
+    const requestOptions = {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': userAuth['Authorization']
+        },
+        body: JSON.stringify({ username, name, email })
+    };
+    return fetch(`http://localhost:3000/users/${id}`, requestOptions)
+    .then(handleResponse);
+
+}
+
+function _delete(id) {
+    const requestOptions = {
+        method: 'DELETE',
+        headers: authHeader()
+    };
+    return fetch(`http://localhost:3000/users/${id}`, requestOptions)
+    .then(handleResponse);
+}
 function logout() {
     // remove user from local storage to log user out
     localStorage.removeItem('user');
@@ -54,7 +79,6 @@ function getAll() {
 }
 
 function handleResponse(response) {
-    console.log('response', response);
     return response.text().then(text => {
         const data = text && JSON.parse(text);
         if (!response.ok) {
