@@ -16,8 +16,4 @@ export default {
 </script>
 
 <style scoped>
-.guachinche-view {
-  width: 100%;
-  background: linear-gradient(180deg, #f50057, #4141bb);
-}
 </style>

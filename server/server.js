@@ -14,6 +14,7 @@ app.use(jwt());
 // api routes
 app.use('/users', require('./users/user.controller'));
 app.use('/guachinches', require('./guachinches/guachinche.controller'));
+app.use('/reservas', require('./reservas/reserva.controller'));
 
 // global error handler
 app.use(errorHandler);

@@ -1,7 +1,8 @@
 <template>
-  <div class="userform">
+  <div>
     <v-app>
       <v-form
+        class="form"
         ref="form"
         v-model="valid"
         lazy-validation
@@ -118,8 +119,17 @@ export default {
 }
 </script>
 
-<style>
-.userform{
-  max-height: 20rem;
+<style scoped>
+.form {
+  width: 30rem;
+  height: 26rem;
+
+  border-radius: 5%;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0 5px rgb(66, 66, 66);
 }
 </style>

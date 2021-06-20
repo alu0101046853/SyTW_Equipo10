@@ -1,7 +1,7 @@
 <template>
   <div class="creation">
-    <v-app class="creation-app" border>
-      <v-form class="form" ref="form" lazy-validation>
+    <v-app>
+      <v-form class="form mt-10" ref="form" lazy-validation>
         <v-text-field
           v-model="name"
           name="name"
@@ -109,12 +109,11 @@ export default {
   justify-content: center;
   align-items: center;
 }
-
-.creation-app {
-  margin: 5rem;
+.form{
+  padding: 1rem;
+  border-radius: 5%;
   width: 40rem;
   height: 50rem;
-  padding: 2rem;
-  background: #4141bb;
+  background-color: white;
 }
 </style>

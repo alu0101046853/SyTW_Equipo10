@@ -3,7 +3,7 @@
     <div class="app">
       <v-app id="inspire">
         <div>
-          <v-app-bar color="pink accent-3">
+          <v-app-bar app fixed color="pink accent-3">
             <router-link to="/" style="text-decoration: none; color: inherit">
               <v-toolbar-title class="title"><h1>GuachIt</h1></v-toolbar-title>
             </router-link>
@@ -18,8 +18,13 @@
               </template>
 
               <v-list>
+                <router-link to="/myreservas">
+                  <v-list-item>
+                    <v-list-item-title>Mis Reservas</v-list-item-title>
+                  </v-list-item>
+                </router-link>
                 <router-link :to="`/user/${user.id}`">
-                  <v-list-item @click="() => {}">
+                  <v-list-item>
                     <v-list-item-title>Perfil</v-list-item-title>
                   </v-list-item>
                 </router-link>
@@ -42,6 +47,9 @@
         </div>
       </v-app>
     </div>
+  <div id="alert-box" v-if="alert.message" :class="`alert ${alert.type}`">
+    {{ alert.message }}
+  </div>
   </header>
 </template>
 
@@ -61,6 +69,9 @@ export default {
     users() {
       return this.$store.state.users.all;
     },
+    alert() {
+      return this.$store.state.alert;
+    },
   },
 };
 </script>
@@ -76,5 +87,11 @@ export default {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   text-shadow: 8px 8px 9px black, 4px 1px 2px white;
   letter-spacing: 0.5rem;
+}
+#alert-box{
+  position: fixed;
+  width: 100%;
+  text-align: center;
+  z-index: 5;
 }
 </style>
