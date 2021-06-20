@@ -32,14 +32,14 @@
 
         <v-text-field
           v-model="phone"
-          label="Telefono de Contacto"
+          label="Teléfono de Contacto"
           name="phone"
           required
         ></v-text-field>
 
         <v-switch
           v-model="delivery"
-          label="Envio a domicilio"
+          label="Envío a domicilio"
           name="delivery"
           required
         ></v-switch>
