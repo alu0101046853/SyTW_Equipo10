@@ -20,7 +20,7 @@ async function getById(id) {
 async function create(guachincheParam) {
 
     if (await Guachinche.findOne({ name: guachincheParam.name })) {
-        throw 'Name "' + guachincheParam.name + '" is already taken';
+        throw 'Guachinche "' + guachincheParam.name + '" is already taken';
     }
 
     const guachinche = new Guachinche(guachincheParam);
@@ -30,7 +30,7 @@ async function create(guachincheParam) {
 async function update(id, guachincheParam) {
     const guachinche = await Guachinche.findById(id);
 
-    if (!guachinche) throw 'User not found';
+    if (!guachinche) throw 'Guachinche not found';
 
     Object.assign(guachinche, guachincheParam);
     await guachinche.save();

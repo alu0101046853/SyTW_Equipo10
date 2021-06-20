@@ -4,6 +4,7 @@ import { alert } from './alert.module';
 import { authentication } from './authentication.module';
 import { users } from './users.module';
 import { guachinches } from './guachinches.module';
+import { reservas } from './reservas.module';
 Vue.use(Vuex)
 
 export default new Vuex.Store({
@@ -11,6 +12,7 @@ export default new Vuex.Store({
         alert,
         authentication,
         users,
-        guachinches
+        guachinches,
+        reservas
     }
 });

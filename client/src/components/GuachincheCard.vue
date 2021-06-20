@@ -30,6 +30,9 @@
           }}</v-chip>
         </v-chip-group>
       </v-card-text>
+      <v-card-text class="mx-14">
+        <reserva-form :data="data"></reserva-form>
+      </v-card-text>
       <v-card-text class="mx-14" v-if="user.username === 'chacho'">
         <v-btn class="mx-14" dark color="error" @click="handleDelete">
           <v-icon> mdi-delete </v-icon>
@@ -41,7 +44,9 @@
 </template>
 
 <script>
+import ReservaForm from './ReservaForm.vue';
 export default {
+  components: { ReservaForm },
   name: "GuachincheCard",
   props: {
     data: {

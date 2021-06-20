@@ -28,10 +28,4 @@ export default {
 };
 </script>
 <style scoped>
-.carousel {
-  max-height: 40rem;
-}
-.guachinches {
-  max-height: 40rem;
-}
 </style>

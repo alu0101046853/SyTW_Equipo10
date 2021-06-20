@@ -1,5 +1,5 @@
 <template>
-  <v-container fill-height class="flex-column mt-5" border>
+  <v-container class="flex justify-center align-items-center">
     <user-form></user-form> 
   </v-container>
 </template>
@@ -16,8 +16,4 @@ export default {
 </script>
 
 <style scoped>
-.container {
-  max-width: 45rem;
-  max-height: 50rem;
-}
 </style>

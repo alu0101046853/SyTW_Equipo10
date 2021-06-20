@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-app>
-      <v-carousel cycle="true">
+      <v-carousel cycle>
         <v-carousel-item
           v-for="(item, i) in items"
           :key="i"
@@ -31,6 +31,6 @@ export default {
 </script>
 <style scoped>
 .carousel {
-  max-height: 40rem;
+  height: 40rem;
 }
 </style>

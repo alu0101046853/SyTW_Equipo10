@@ -1,11 +1,21 @@
 <template>
   <div>
-    <v-app class="inspire">
+    <v-app>
       <v-form
+       class="form"
         ref="form"
         v-model="valid"
         lazy-validation
       >
+      <router-link class="link mt-3" to='/signup'>
+      <v-btn
+      rounded
+      dark
+      >
+        ¿No tiene Cuenta?, Registrese Aquí
+      </v-btn>
+      </router-link>
+
       <v-text-field
         v-model="username"
         name="username"
@@ -22,8 +32,9 @@
         required
         @click:append="show1 = !show1"
       ></v-text-field>
-
-      <v-btn
+      
+      <v-container class="flex justify-space-evenly align-center">
+        <v-btn
         :disabled="!valid"
         color="success"
         class="mr-3"
@@ -46,6 +57,7 @@
       >
         Resetear Validación
       </v-btn>
+      </v-container>
       </v-form>
     </v-app>
   </div>
@@ -97,8 +109,16 @@ export default {
 }
 </script>
 
-<style scopped>
-.inspire{
-  max-height: 12rem;
+<style scoped>
+.form{
+  width: 30rem;
+  height: 26rem;
+  border-radius: 5%;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0 5px rgb(66, 66, 66)
 }
 </style>

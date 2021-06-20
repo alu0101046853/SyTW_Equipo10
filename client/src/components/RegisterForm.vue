@@ -122,9 +122,8 @@ export default {
   width: 30rem;
   height: 26rem;
 
-  border: 2px solid black;
   border-radius: 5%;
-  
+  background-color: white;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -176,7 +175,4 @@ export default {
   color: white;
 }
 
-.register{
-  max-height: 20rem;
-}
 </style>
