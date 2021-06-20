@@ -1,7 +1,7 @@
 <template>
   <div class="creation">
     <v-app>
-      <v-form class="form mt-10" ref="form" lazy-validation>
+      <v-form class="form" ref="form" lazy-validation>
         <v-text-field
           v-model="name"
           name="name"
@@ -55,7 +55,7 @@
             Crear
           </v-btn>
 
-          <v-btn color="error" class="mr-4" @click="reset"> Resetar </v-btn>
+          <v-btn color="error" class="mr-4" @click="reset"> Resetear </v-btn>
         </div>
       </v-form>
     </v-app>
@@ -73,7 +73,7 @@ export default {
       hour: "",
       phone: "",
       image: "",
-      delivery: "",
+      delivery: false,
       submitted: false,
     };
   },
@@ -109,11 +109,13 @@ export default {
   justify-content: center;
   align-items: center;
 }
-.form{
-  padding: 1rem;
+.form {
+  padding: 2rem;
   border-radius: 5%;
-  width: 40rem;
+  width: 45rem;
   height: 50rem;
   background-color: white;
+  box-shadow: 0 0 5px rgb(66, 66, 66);
+  margin-top: 2rem;
 }
 </style>

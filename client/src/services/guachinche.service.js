@@ -8,9 +8,13 @@ export const guachincheService = {
 };
 
 function create (name, location, hour, phone, delivery, image, description) {
+    const userAuth = authHeader();
     const requestOptions = {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': userAuth['Authorization']
+        },
         body: JSON.stringify({ name, location, hour, phone, delivery, image, description })
     };
     return fetch('http://localhost:3000/guachinches/register', requestOptions)
