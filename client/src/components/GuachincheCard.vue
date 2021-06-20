@@ -1,8 +1,8 @@
 <template>
   <div>
     <v-card
-      color="deep-purple accent-1"
-      class="mx-auto my-12"
+      color="purple lighten-4"
+      class="mx-auto my-12 pb-4"
       max-width="450"
       max-height="840"
     >
@@ -30,21 +30,24 @@
           }}</v-chip>
         </v-chip-group>
       </v-card-text>
-      <v-card-text class="mx-14">
+      <div :class="user.username === 'chacho' ? 'opciones' : 'single'">
         <reserva-form :data="data"></reserva-form>
-      </v-card-text>
-      <v-card-text class="mx-14" v-if="user.username === 'chacho'">
-        <v-btn class="mx-14" dark color="error" @click="handleDelete">
+        <v-btn
+          v-if="user.username === 'chacho'"
+          dark
+          color="error"
+          @click="handleDelete"
+        >
           <v-icon> mdi-delete </v-icon>
           Borrar Guachinche
         </v-btn>
-      </v-card-text>
+      </div>
     </v-card>
   </div>
 </template>
 
 <script>
-import ReservaForm from './ReservaForm.vue';
+import ReservaForm from "./ReservaForm.vue";
 export default {
   components: { ReservaForm },
   name: "GuachincheCard",
@@ -81,4 +84,15 @@ export default {
 };
 </script>
 <style scoped>
+.opciones {
+  margin-left: 2rem;
+  margin-right: 2rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.single {
+  margin-top: 1rem;
+  margin-left: 11rem;
+}
 </style>

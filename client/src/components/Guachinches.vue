@@ -4,7 +4,7 @@
       <v-container grid-list-xs>
         <v-col offset-md="5">
           <v-switch
-            color="lime accent-3"
+            color="lime darken-3"
             v-model="filtro"
             label="Mostrar solo guachinches con envio a domicilio"
           ></v-switch>

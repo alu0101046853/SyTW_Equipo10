@@ -1,17 +1,14 @@
 <template>
   <div class="register">
     <v-app>
-      <v-form
-        ref="form"
-        v-model="valid"
-        lazy-validation
-        class="form">
-
+      <v-form ref="form" v-model="valid" lazy-validation class="form">
         <div class="circle-and-text-container">
           <div class="circle">
-           <v-icon x-large color="white">mdi-account-outline</v-icon> 
+            <v-icon x-large color="white">mdi-account-outline</v-icon>
           </div>
-          <router-link to="/login" class="link">¿Ya tienes una cuenta?</router-link>
+          <router-link to="/login" class="link"
+            >¿Ya tienes una cuenta?</router-link
+          >
         </div>
 
         <div class="input-container">
@@ -20,53 +17,57 @@
             name="username"
             label="Usuario"
             class="form-item ma-0 pa-1"
-            required>
-         </v-text-field>
+            required
+          >
+          </v-text-field>
 
-         <v-text-field
-           v-model="name"
-           name="name"
-           class="form-item ma-0 pa-1"
-           label="Nombre">
-         </v-text-field>
+          <v-text-field
+            v-model="name"
+            name="name"
+            class="form-item ma-0 pa-1"
+            label="Nombre"
+          >
+          </v-text-field>
 
-        <v-text-field
-          v-model="email"
-          :rules="[rules.email]"
-          label="E-mail"
-          class="form-item ma-0 pa-1"
-          name="email">
-        </v-text-field>
+          <v-text-field
+            v-model="email"
+            :rules="[rules.email]"
+            label="E-mail"
+            class="form-item ma-0 pa-1"
+            name="email"
+          >
+          </v-text-field>
 
-        <v-text-field
-          v-model="password"
-          :append-icon="show1 ? 'mdi-eye' : 'mdi-eye-off'"
-          :type="show1 ? 'text' : 'password'"
-          name="password"
-          label="Contraseña"
-          class="form-item ma-0 pa-1"
-          required
-          @click:append="show1 = !show1">
-        </v-text-field>
+          <v-text-field
+            v-model="password"
+            :append-icon="show1 ? 'mdi-eye' : 'mdi-eye-off'"
+            :type="show1 ? 'text' : 'password'"
+            name="password"
+            label="Contraseña"
+            class="form-item ma-0 pa-1"
+            required
+            @click:append="show1 = !show1"
+          >
+          </v-text-field>
 
-        <div class="button-container">
-          <v-btn
-            :disabled="!valid"
-            class="sign-button"
-            color="#862d59"
-            @click="handleSubmit"> Sign Up
-          </v-btn>
+          <div class="button-container">
+            <v-btn
+              :disabled="!valid"
+              class="sign-button"
+              color="success"
+              @click="handleSubmit"
+            >
+              Registrarme
+            </v-btn>
 
-          <v-btn
-            color="#862d59"
-            class="sign-button"
-            @click="reset"> Resetear Formulario
-          </v-btn>    
+            <v-btn color="error" class="sign-button" @click="reset">
+              Resetear Formulario
+            </v-btn>
+          </div>
         </div>
-      </div>
-    </v-form>
-  </v-app>
-</div>
+      </v-form>
+    </v-app>
+  </div>
 </template>
 
 <script>
@@ -78,13 +79,13 @@ export default {
       valid: true,
       username: "",
       name: "",
-      email: '',
+      email: "",
       password: "",
       submitted: false,
       rules: {
-        email: v => /.+@.+\..+/.test(v) || 'E-mail must be valid'
-      }
-    }
+        email: (v) => /.+@.+\..+/.test(v) || "E-mail must be valid",
+      },
+    };
   },
   computed: {
     loggingIn() {
@@ -104,22 +105,22 @@ export default {
         dispatch("authentication/signup", { username, password, name, email });
       }
     },
-    validate () {
-      this.$refs.form.validate()
+    validate() {
+      this.$refs.form.validate();
     },
-    reset () {
-      this.$refs.form.reset()
+    reset() {
+      this.$refs.form.reset();
     },
-    resetValidation () {
-      this.$refs.form.resetValidation()
-    }
+    resetValidation() {
+      this.$refs.form.resetValidation();
+    },
   },
-}
+};
 </script>
 
 <style scoped>
 .form {
-  width: 30rem;
+  width: 40rem;
   height: 26rem;
 
   border-radius: 5%;
@@ -146,7 +147,7 @@ export default {
 
   border-radius: 50%;
 
-  background:  #862d59;
+  background: #420e28;
   box-shadow: 0 0 5px rgb(66, 66, 66);
 
   display: flex;
@@ -154,8 +155,8 @@ export default {
   align-items: center;
 }
 
-.circle-and-text-container .link{
-  color:  #862d59;
+.circle-and-text-container .link {
+  color: #420e28;
 }
 
 .form .input-container {
@@ -163,10 +164,9 @@ export default {
 }
 
 .button-container {
-  width: 100%;
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 1rem;
   position: relative;
   z-index: 9;
 }
@@ -174,5 +174,4 @@ export default {
 .sign-button {
   color: white;
 }
-
 </style>

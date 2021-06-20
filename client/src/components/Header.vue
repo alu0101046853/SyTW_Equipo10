@@ -3,7 +3,7 @@
     <div class="app">
       <v-app id="inspire">
         <div>
-          <v-app-bar app fixed color="pink accent-3">
+          <v-app-bar app fixed color="purple lighten-3">
             <router-link to="/" style="text-decoration: none; color: inherit">
               <v-toolbar-title class="title"><h1>GuachIt</h1></v-toolbar-title>
             </router-link>
@@ -47,9 +47,9 @@
         </div>
       </v-app>
     </div>
-  <div id="alert-box" v-if="alert.message" :class="`alert ${alert.type}`">
-    {{ alert.message }}
-  </div>
+    <div id="alert-box" v-if="alert.message" :class="`alert ${alert.type}`">
+      {{ alert.message }}
+    </div>
   </header>
 </template>
 
@@ -88,7 +88,7 @@ export default {
   text-shadow: 8px 8px 9px black, 4px 1px 2px white;
   letter-spacing: 0.5rem;
 }
-#alert-box{
+#alert-box {
   position: fixed;
   width: 100%;
   text-align: center;
