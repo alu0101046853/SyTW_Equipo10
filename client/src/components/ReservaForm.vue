@@ -35,7 +35,7 @@
                   <template v-slot:activator="{ on, attrs }">
                     <v-text-field
                       v-model="date"
-                      label="Fecha de la reserva"
+                      label="Fecha"
                       prepend-icon="mdi-calendar"
                       readonly
                       v-bind="attrs"
@@ -64,7 +64,7 @@
                   <template v-slot:activator="{ on, attrs }">
                     <v-text-field
                       v-model="time"
-                      label="Picker in menu"
+                      label="Hora"
                       prepend-icon="mdi-clock-time-four-outline"
                       readonly
                       v-bind="attrs"

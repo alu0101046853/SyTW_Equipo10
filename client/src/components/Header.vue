@@ -18,14 +18,14 @@
               </template>
 
               <v-list>
-                <router-link to="/myreservas">
-                  <v-list-item>
-                    <v-list-item-title>Mis Reservas</v-list-item-title>
-                  </v-list-item>
-                </router-link>
                 <router-link :to="`/user/${user.id}`">
                   <v-list-item>
                     <v-list-item-title>Perfil</v-list-item-title>
+                  </v-list-item>
+                </router-link>
+                <router-link to="/myreservas">
+                  <v-list-item>
+                    <v-list-item-title>Mis Reservas</v-list-item-title>
                   </v-list-item>
                 </router-link>
                 <router-link
@@ -54,14 +54,8 @@
 </template>
 
 <script>
-// import Logo from "./Logo.vue";
-// import Profile from "./Profile.vue";
 export default {
   name: "app",
-  components: {
-    // Logo,
-    // Profile,
-  },
   computed: {
     user() {
       return this.$store.state.authentication.user;

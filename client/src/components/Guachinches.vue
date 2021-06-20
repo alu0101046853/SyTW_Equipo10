@@ -2,11 +2,11 @@
   <div>
     <v-app>
       <v-container grid-list-xs>
-        <v-col offset-md="5">
+        <v-col offset-md="4">
           <v-switch
-            color="lime darken-3"
+            color="lime darken-2"
             v-model="filtro"
-            label="Mostrar solo guachinches con envio a domicilio"
+            label="Mostrar solo guachinches con envío a domicilio"
           ></v-switch>
         </v-col>
       </v-container>

@@ -36,7 +36,7 @@
                 class="mr-3"
                 @click="handleSubmit"
               >
-                Log in
+                Iniciar sesión
               </v-btn>
 
               <v-btn color="error" class="mr-3" @click="reset">
