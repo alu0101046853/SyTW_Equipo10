@@ -22,4 +22,9 @@ export default {
 };
 </script>
 <style scopped>
+/* colores 
+#e3d7b9
+#90a88e 
+https://colorpalettes.net/color-palette-2267/ 
+*/
 </style>

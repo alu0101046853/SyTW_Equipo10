@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-app>
-      <v-carousel>
+      <v-carousel cycle="true">
         <v-carousel-item
           v-for="(item, i) in items"
           :key="i"
