@@ -3,7 +3,7 @@
     <div class="app">
       <v-app id="inspire">
         <div>
-          <v-app-bar color="pink accent-3">
+          <v-app-bar app fixed color="pink accent-3">
             <router-link to="/" style="text-decoration: none; color: inherit">
               <v-toolbar-title class="title"><h1>GuachIt</h1></v-toolbar-title>
             </router-link>
@@ -39,8 +39,12 @@
               </v-list>
             </v-menu>
           </v-app-bar>
+            <div v-if="alert.message" :class="`alert ${alert.type}`">
+              {{ alert.message }}
+            </div>
         </div>
       </v-app>
+      
     </div>
   </header>
 </template>
@@ -60,6 +64,9 @@ export default {
     },
     users() {
       return this.$store.state.users.all;
+    },
+    alert() {
+      return this.$store.state.alert;
     },
   },
 };
