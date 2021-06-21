@@ -1,0 +1,4 @@
+{
+    "connectionString": "mongodb+srv://equipo10:equipo10@cluster0.5u8hp.mongodb.net/guachit",
+    "secret": "Es un secreto"
+}
