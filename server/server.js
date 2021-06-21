@@ -12,7 +12,7 @@ app.use(cors());
 app.use(jwt());
 
 // api routes
-app.use('/', express.static('./../client/public'));
+app.use(express.static(path.join(__dirname, '../client/public')));
 app.use('/users', require('./users/user.controller'));
 app.use('/guachinches', require('./guachinches/guachinche.controller'));
 app.use('/reservas', require('./reservas/reserva.controller'));
