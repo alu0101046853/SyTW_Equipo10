@@ -16,7 +16,7 @@ function login(username, password) {
         body: JSON.stringify({ username, password })
     };
 
-    return fetch('http://localhost:3000/users/authenticate', requestOptions)
+    return fetch('https://guachit-api.herokuapp.com/users/authenticate', requestOptions)
         .then(handleResponse)
         .then(user => {
             // login successful if there's a jwt token in the response
@@ -36,7 +36,7 @@ function signup(username, password, name, email) {
         body: JSON.stringify({ username, password, name, email })
     };
 
-    return fetch('http://localhost:3000/users/register', requestOptions)
+    return fetch('https://guachit-api.herokuapp.com/users/register', requestOptions)
     .then(handleResponse);
 
 }
@@ -51,7 +51,7 @@ function update(username, name, email, id) {
         },
         body: JSON.stringify({ username, name, email })
     };
-    return fetch(`http://localhost:3000/users/${id}`, requestOptions)
+    return fetch(`https://guachit-api.herokuapp.com/users/${id}`, requestOptions)
     .then(handleResponse);
 
 }

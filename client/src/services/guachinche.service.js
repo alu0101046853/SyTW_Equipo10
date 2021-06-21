@@ -17,7 +17,7 @@ function create (name, location, hour, phone, delivery, image, description) {
         },
         body: JSON.stringify({ name, location, hour, phone, delivery, image, description })
     };
-    return fetch('http://localhost:3000/guachinches/register', requestOptions)
+    return fetch('https://guachit-api.herokuapp.com/guachinches/register', requestOptions)
     .then(handleResponse);
 }
 
@@ -26,7 +26,7 @@ function _delete(id){
         method: 'DELETE',
         headers: authHeader()
     };
-    return fetch(`http://localhost:3000/guachinches/${id}`, requestOptions)
+    return fetch(`https://guachit-api.herokuapp.com/guachinches/${id}`, requestOptions)
     .then(handleResponse);
 }
 
@@ -36,7 +36,7 @@ function getAll() {
         headers: authHeader()
     };
 
-    return fetch('http://localhost:3000/guachinches', requestOptions).then(handleResponse);
+    return fetch('https://guachit-api.herokuapp.com/guachinches', requestOptions).then(handleResponse);
 }
 
 function logout() {
