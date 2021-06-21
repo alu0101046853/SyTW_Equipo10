@@ -1,4 +1,7 @@
+[![Build Status](https://www.travis-ci.com/alu0101046853/SyTW_Equipo10.svg?branch=main)](https://www.travis-ci.com/alu0101046853/SyTW_Equipo10)
+
 # GuachIT: Aplicación de locos para guachinches
+
 
 - Participantes:
 
