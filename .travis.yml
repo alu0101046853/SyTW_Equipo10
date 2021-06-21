@@ -14,9 +14,7 @@ script:
   - npm install
   - npm install coveralls nyc
   - npm run test
-
-after_success:
- - npx nyc report --reporter=text-lcov | coveralls
+  - npm run coverage
 
 notifications:
   slack:
