@@ -18,6 +18,8 @@ app.use('/reservas', require('./reservas/reserva.controller'));
 
 // global error handler
 app.use(errorHandler);
+app.use(express.static(__dirname + '../client/public'));
+
 
 // start server
 const port = process.env.NODE_ENV === 'production' ? (process.env.PORT || 80) : 3000;
