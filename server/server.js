@@ -12,13 +12,13 @@ app.use(cors());
 app.use(jwt());
 
 // api routes
+app.use('/', express.static('./../client/public'));
 app.use('/users', require('./users/user.controller'));
 app.use('/guachinches', require('./guachinches/guachinche.controller'));
 app.use('/reservas', require('./reservas/reserva.controller'));
 
 // global error handler
 app.use(errorHandler);
-app.use('/', express.static(__dirname + '/../client/public'));
 
 
 // start server
