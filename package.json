@@ -4,8 +4,8 @@
   "description": "- Participantes:",
   "main": "index.js",
   "scripts": {
-    "start": "cd server/ && npm install && npm start",
-    "heroku-postbuild": "cd client/ && npm install && npm run build"
+    "start": "cd client/ && npm run build && cd ../serve/ && npm start",
+    "heroku-postinstall": "npm install --prefix server && npm install --prefix client"
   },
   "repository": {
     "type": "git",
