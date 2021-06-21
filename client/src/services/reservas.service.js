@@ -18,7 +18,7 @@ function create (time,date,comensales,name,usuario, guachinche) {
         },
         body: JSON.stringify({ time,date,comensales,name,usuario, guachinche })
     };
-    return fetch('http://localhost:3000/reservas/create', requestOptions)
+    return fetch('https://guachit-api.herokuapp.com/reservas/create', requestOptions)
     .then(handleResponse);
 }
 function getAllbyID(id){
@@ -26,7 +26,7 @@ function getAllbyID(id){
         method: 'GET',
         headers: authHeader()
     };
-    return fetch(`http://localhost:3000/reservas/${id}`, requestOptions)
+    return fetch(`https://guachit-api.herokuapp.com/reservas/${id}`, requestOptions)
     .then(handleResponse);
 }
 
@@ -35,7 +35,7 @@ function _delete(id){
         method: 'DELETE',
         headers: authHeader()
     };
-    return fetch(`http://localhost:3000/reservas/${id}`, requestOptions)
+    return fetch(`https://guachit-api.herokuapp.com/reservas/${id}`, requestOptions)
     .then(handleResponse);
 }
 
@@ -45,7 +45,7 @@ function getAll() {
         headers: authHeader()
     };
 
-    return fetch('http://localhost:3000/reservas', requestOptions).then(handleResponse);
+    return fetch('https://guachit-api.herokuapp.com/reservas', requestOptions).then(handleResponse);
 }
 
 function logout() {
