@@ -1,0 +1,20 @@
+{
+  "name": "proyecto",
+  "version": "1.0.0",
+  "description": "- Participantes:",
+  "main": "index.js",
+  "scripts": {
+    "start": "cd server/ && npm install && npm start",
+    "build": "cd client/ && npm install && npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alu0101046853/SyTW_Equipo10.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alu0101046853/SyTW_Equipo10/issues"
+  },
+  "homepage": "https://github.com/alu0101046853/SyTW_Equipo10#readme"
+}
