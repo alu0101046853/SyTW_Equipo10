@@ -12,9 +12,11 @@ before_script: cd server
 
 script:
   - npm install
+  - cd ../
   - npm install coveralls nyc
-  - npm run test
-  - npm run coverage
+  - nyc npm test --prefix server
+  - nyc report --reporter=lcov
+  - cat ./coverage/lcov.info | coveralls
 
 notifications:
   slack:

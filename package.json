@@ -1,0 +1,20 @@
+{
+  "name": "Proyecto",
+  "version": "1.0.0",
+  "description": "[![Build Status](https://www.travis-ci.com/alu0101046853/SyTW_Equipo10.svg?branch=main)](https://www.travis-ci.com/alu0101046853/SyTW_Equipo10) [![Coverage Status](https://coveralls.io/repos/github/alu0101046853/SyTW_Equipo10/badge.svg?branch=main)](https://coveralls.io/github/alu0101046853/SyTW_Equipo10?branch=main)",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test --prefix server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alu0101046853/SyTW_Equipo10.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alu0101046853/SyTW_Equipo10/issues"
+  },
+  "homepage": "https://github.com/alu0101046853/SyTW_Equipo10#readme"
+}
