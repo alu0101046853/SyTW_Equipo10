@@ -18,7 +18,7 @@ app.use('/reservas', require('./reservas/reserva.controller'));
 
 // global error handler
 app.use(errorHandler);
-app.use(express.static(__dirname + '../client/public'));
+app.use(express.static(__dirname + '/../client/public'));
 
 
 // start server
