@@ -1,5 +1,5 @@
 import Router from "vue-router";
-import { shallowMount, createLocalVue, } from '@vue/test-utils';
+import { createLocalVue } from '@vue/test-utils';
 
 const localVue = createLocalVue();
 
