@@ -55,7 +55,7 @@
 
 <script>
 export default {
-  name: "app",
+  name: "Header",
   computed: {
     user() {
       return this.$store.state.authentication.user;
