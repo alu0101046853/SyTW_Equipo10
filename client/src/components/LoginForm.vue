@@ -2,52 +2,50 @@
   <div class="login-page">
     <v-app>
       <v-form class="form" ref="form" v-model="valid" lazy-validation>
-        <v-container>
-          <v-row
-            ><v-col>
-              <v-text-field
-                @keyup.enter="handleSubmit"
-                v-model="username"
-                name="username"
-                label="Usuario"
-                required
-              ></v-text-field>
+          <div class="circle">
+            <v-icon x-large color="white">mdi-account-key-outline</v-icon>
+          </div>
+  
+        <div class="input-container">
+          <v-text-field
+            v-model="username"
+            name="username"
+            label="Usuario"
+            class="form-item ma-0 pa-1"
+            required>
+          </v-text-field>
 
-              <v-text-field
-                @keyup.enter="handleSubmit"
-                v-model="password"
-                :append-icon="show1 ? 'mdi-eye' : 'mdi-eye-off'"
-                :type="show1 ? 'text' : 'password'"
-                name="password"
-                label="Contraseña"
-                required
-                @click:append="show1 = !show1"
-              ></v-text-field>
-            </v-col>
-          </v-row>
-        </v-container>
+          <v-text-field
+            v-model="password"
+            :append-icon="show1 ? 'mdi-eye' : 'mdi-eye-off'"
+            :type="show1 ? 'text' : 'password'"
+            name="password"
+            label="Contraseña"
+            class="form-item ma-0 pa-1"
+            required
+            @click:append="show1 = !show1">
+          </v-text-field>
 
-        <v-container class="flex justify-space-evenly align-center">
-          <div class="submit-area">
-            <div class="buttons">
-              <v-btn
-                :disabled="!valid"
-                color="success"
-                class="mr-3"
-                @click="handleSubmit"
-              >
-                Iniciar sesión
-              </v-btn>
+          <div class="button-container">
+            <v-btn
+              :disabled="!valid"
+              class="sign-button"
+              color="success"
+              @click="handleSubmit">
+              Iniciar sesión
+            </v-btn>
 
-              <v-btn color="error" class="mr-3" @click="reset">
-                Resetear Formulario
-              </v-btn>
-            </div>
+            <v-btn color="error" class="reset-button" @click="reset">
+              Resetear Formulario
+            </v-btn>
+          </div>
+
+          <div class="btn-no-acc">
             <router-link class="link mt-3" to="/signup">
               <v-btn rounded dark> ¿No tiene Cuenta?, Registrese Aquí </v-btn>
             </router-link>
           </div>
-        </v-container>
+        </div>
       </v-form>
     </v-app>
   </div>
@@ -99,20 +97,49 @@ export default {
 <style scoped>
 .form {
   width: 30rem;
-  height: 20rem;
+  height: 22.5rem;
   border-radius: 5%;
   background-color: white;
   box-shadow: 0 0 5px rgb(66, 66, 66);
 }
+
 .form,
-.submit-area,
 .login-page {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
+
+.circle {
+  width: 5rem;
+  height: 5rem;
+
+  border-radius: 50%;
+
+  background: #420e28;
+  box-shadow: 0 0 5px rgb(66, 66, 66);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .login-page {
-  margin-top: 4rem;
+  margin-top: 3.5rem;
+}
+
+.button-container {
+  margin-bottom: 5px;
+}
+
+.reset-button {
+  margin-left: 10px;
+}
+
+.btn-no-acc {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 </style>
