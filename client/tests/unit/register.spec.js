@@ -8,13 +8,12 @@ import { authentication } from "@/store/authentication.module";
 const localVue = createLocalVue();
 
 Vue.use(Vuetify);
-//localVue.use(Vuetify);
-//localVue.use(Vuex);
 Vue.use(Vuex);
 
-describe("Register", () => {
-  let username, name, email, pass;
+describe("RegisterForm component", () => {
+  let username, name, email, password;
   let vuetify;
+  let wrapper;
 
   const store = new Vuex.Store({
     modules: {
@@ -25,32 +24,34 @@ describe("Register", () => {
 
   beforeEach( async () => {
     vuetify = new Vuetify(); 
-  });
-
-
-
-  it('Username montado en wrapper', async () => {
-    const wrapper = shallowMount(RegisterForm, {
+    wrapper = shallowMount(RegisterForm, {
       localVue,
       store,
     });
-
-  username = wrapper.find("#pepe-grillo > input").setValue("tester");
-
-  console.log(username);
-  name = wrapper.find('[name = "name"]');
-  email = wrapper.find('[name = "email"]');
-  pass = wrapper.find('[name = "password"]');
-
-
-
-  //await username.setValue("tester"); 
-  /*await name.setValue("Ejemplo");
-  await email.setValue("ejemplo@gmail.com");
-  await pass.setValue("tester123");
-  */
-
-    expect(wrapper.vm.username).not.toBe(undefined);
   });
+
+  it('Se espera el username correcto', () => {
+   username = wrapper.find('[name = "username"]');
+   username.vm.$emit("input", "Ozuna");
+   expect(wrapper.vm.username).toBe("Ozuna");
+  });
+
+  it('Se espera el nombre correcto', () => {
+    name = wrapper.find('[name = "name"]');
+    name.vm.$emit("input", "Juan Carlos");
+    expect(wrapper.vm.name).toBe("Juan Carlos");
+   });
+
+   it('Se espera un correo válido', () => {
+    email = wrapper.find('[name = "email"]');
+    email.vm.$emit("input", "prueba@gmail.com");
+    expect(wrapper.vm.email).toBe("prueba@gmail.com");
+   });
+
+   it('Se espera una contraseña válida', () => {
+    password = wrapper.find('#pass');
+    password.vm.$emit("input", "prueba123");
+    expect(wrapper.vm.password).toBe("prueba123");
+   });
 
 });

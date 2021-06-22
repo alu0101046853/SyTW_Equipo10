@@ -16,7 +16,6 @@
             v-model="username"
             name="username"
             label="Usuario"
-            id="pepe-grillo"
             class="form-item ma-0 pa-1"
             required>
           </v-text-field>
@@ -41,6 +40,7 @@
             :append-icon="show1 ? 'mdi-eye' : 'mdi-eye-off'"
             :type="show1 ? 'text' : 'password'"
             name="password"
+            id="pass"
             label="Contraseña"
             class="form-item ma-0 pa-1"
             required
