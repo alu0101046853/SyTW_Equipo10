@@ -61,7 +61,7 @@ function _delete(id) {
         method: 'DELETE',
         headers: authHeader()
     };
-    return fetch(`http://localhost:3000/users/${id}`, requestOptions)
+    return fetch(`https://guachit-api.herokuapp.com/users/${id}`, requestOptions)
     .then(handleResponse);
 }
 function logout() {
@@ -75,7 +75,7 @@ function getAll() {
         headers: authHeader()
     };
 
-    return fetch('http://localhost:3000/users', requestOptions).then(handleResponse);
+    return fetch('https://guachit-api.herokuapp.com/users', requestOptions).then(handleResponse);
 }
 
 function handleResponse(response) {
