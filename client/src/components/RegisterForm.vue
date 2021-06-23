@@ -4,7 +4,7 @@
       <v-form ref="form" v-model="valid" lazy-validation class="form">
         <div class="circle-and-text-container">
           <div class="circle">
-            <v-icon x-large color="white">mdi-account-outline</v-icon>
+            <v-icon x-large color="white">mdi-account-plus-outline</v-icon>
           </div>
           <router-link to="/login" class="link"
             >¿Ya tienes una cuenta?</router-link
@@ -17,16 +17,14 @@
             name="username"
             label="Usuario"
             class="form-item ma-0 pa-1"
-            required
-          >
+            required>
           </v-text-field>
 
           <v-text-field
             v-model="name"
             name="name"
             class="form-item ma-0 pa-1"
-            label="Nombre"
-          >
+            label="Nombre">
           </v-text-field>
 
           <v-text-field
@@ -34,8 +32,7 @@
             :rules="[rules.email]"
             label="E-mail"
             class="form-item ma-0 pa-1"
-            name="email"
-          >
+            name="email">
           </v-text-field>
 
           <v-text-field
@@ -43,6 +40,7 @@
             :append-icon="show1 ? 'mdi-eye' : 'mdi-eye-off'"
             :type="show1 ? 'text' : 'password'"
             name="password"
+            id="pass"
             label="Contraseña"
             class="form-item ma-0 pa-1"
             required

@@ -2,27 +2,32 @@
   <div class="form-div">
     <v-app>
       <v-form class="form" ref="form" v-model="valid" lazy-validation>
+        <v-container>
         <v-row>
           <v-col>
             <v-text-field
-              v-model="user.username"
+              v-model="username"
               name="username"
               label="Usuario"
+              id="username-update"
               required
             ></v-text-field>
 
             <v-text-field
-              v-model="user.name"
+              v-model="name"
               name="name"
+              id="name-update"
               label="Nombre"
             ></v-text-field>
 
             <v-text-field
-              v-model="user.email"
+              v-model="email"
               :rules="[rules.email]"
               label="E-mail"
+              id="email-update"
               name="email"
             ></v-text-field>
+
             <div class="buttons">
               <v-btn
                 :disabled="!valid"
@@ -70,6 +75,7 @@
             </div>
           </v-col>
         </v-row>
+        </v-container>
       </v-form>
     </v-app>
   </div>
@@ -81,6 +87,9 @@ export default {
   data() {
     return {
       loading: false,
+      username: this.computed.user.username,
+      email: this.computed.user.email,
+      name: this.computed.user.name,
       valid: true,
       submitted: false,
       showdelete: false,
@@ -116,6 +125,7 @@ export default {
 </script>
 
 <style scoped>
+
 .form {
   width: 32rem;
   height: 22rem;
@@ -143,4 +153,5 @@ export default {
 .popup {
   position: absolute;
 }
+
 </style>
