@@ -4,7 +4,6 @@ import Vuex from "vuex";
 import { shallowMount, createLocalVue, } from '@vue/test-utils';
 import Header from '@/components/Header.vue';
 import { authentication } from "@/store/authentication.module";
-import { users } from "@/store/users.module";
 import { alert } from "@/store/alert.module";
 
 
@@ -20,7 +19,6 @@ describe("Header component", () => {
   const store = new Vuex.Store({
     modules: {
       authentication,
-      users,
       alert
     }
   });

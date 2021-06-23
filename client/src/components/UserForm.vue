@@ -6,7 +6,7 @@
         <v-row>
           <v-col>
             <v-text-field
-              v-model="username"
+              v-model="user.username"
               name="username"
               label="Usuario"
               id="username-update"
@@ -14,14 +14,14 @@
             ></v-text-field>
 
             <v-text-field
-              v-model="name"
+              v-model="user.name"
               name="name"
               id="name-update"
               label="Nombre"
             ></v-text-field>
 
             <v-text-field
-              v-model="email"
+              v-model="user.email"
               :rules="[rules.email]"
               label="E-mail"
               id="email-update"
@@ -87,9 +87,6 @@ export default {
   data() {
     return {
       loading: false,
-      username: this.computed.user.username,
-      email: this.computed.user.email,
-      name: this.computed.user.name,
       valid: true,
       submitted: false,
       showdelete: false,
@@ -116,10 +113,7 @@ export default {
       const { id } = this.user;
       const { dispatch } = this.$store;
       dispatch("authentication/_delete", { id });
-    },
-    validate() {
-      this.$refs.form.validate();
-    },
+    }
   },
 };
 </script>

@@ -21,18 +21,12 @@ export default {
   },
   watch: {
     $route() {
-      // clear alert on location change
       this.$store.dispatch("alert/clear");
     },
   },
 };
 </script>
 <style>
-/* colores 
-#e3d7b9
-#90a88e 
-https://colorpalettes.net/color-palette-2267/ 
-*/
 #app {
   background: url("https://image.freepik.com/vector-gratis/fondo-tamano-pantalla-pagina-web-abstracta-gradiente-crepuscular_70155-243.jpg")
     no-repeat center center fixed !important;

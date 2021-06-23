@@ -2,7 +2,6 @@ const express = require('express');
 const router = express.Router();
 const reservaService = require('./reserva.service');
 
-// routes
 router.post('/create', create);
 router.get('/', getAll);
 router.get('/:id', getById);

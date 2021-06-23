@@ -85,13 +85,7 @@ export default {
       },
     };
   },
-  computed: {
-    loggingIn() {
-      return this.$store.state.authentication.status.loggingIn;
-    },
-  },
   created() {
-    // reset login status
     this.$store.dispatch("authentication/logout");
   },
   methods: {
@@ -103,15 +97,9 @@ export default {
         dispatch("authentication/signup", { username, password, name, email });
       }
     },
-    validate() {
-      this.$refs.form.validate();
-    },
     reset() {
       this.$refs.form.reset();
-    },
-    resetValidation() {
-      this.$refs.form.resetValidation();
-    },
+    }
   },
 };
 </script>
