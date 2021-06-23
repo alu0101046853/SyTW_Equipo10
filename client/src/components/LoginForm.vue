@@ -12,6 +12,7 @@
             name="username"
             label="Usuario"
             class="form-item ma-0 pa-1"
+            @keyup.enter="handleSubmit"
             required>
           </v-text-field>
 
@@ -22,6 +23,7 @@
             name="password"
             label="Contraseña"
             class="form-item ma-0 pa-1"
+            @keyup.enter="handleSubmit"
             required
             @click:append="show1 = !show1">
           </v-text-field>
@@ -61,18 +63,9 @@ export default {
       username: "",
       password: "",
       submitted: false,
-      rules: {
-        email: (v) => /.+@.+\..+/.test(v) || "E-mail must be valid",
-      },
     };
   },
-  computed: {
-    loggingIn() {
-      return this.$store.state.authentication.status.loggingIn;
-    },
-  },
   created() {
-    // reset login status
     this.$store.dispatch("authentication/logout");
   },
   methods: {
@@ -83,9 +76,6 @@ export default {
       if (username && password) {
         dispatch("authentication/login", { username, password });
       }
-    },
-    validate() {
-      this.$refs.form.validate();
     },
     reset() {
       this.$refs.form.reset();

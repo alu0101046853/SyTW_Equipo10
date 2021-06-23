@@ -45,13 +45,15 @@ export const guachinches = {
     },
     mutations: {
         getAllRequest(state) {
-            state.all = { loading: true };
+            state.status = { loading: true };
         },
         getAllSuccess(state, guachinches) {
             state.all = { items: guachinches };
+            state.status = { loading: false };
         },
         getAllFailure(state, error) {
             state.all = { error };
+            state.status = { loading: false };
         },
         createRequest(state) {
             state.all = {loading: true}
@@ -59,8 +61,8 @@ export const guachinches = {
         createSuccess(state) {
             state.all = {}
         },
-        createFailure(state) {
-            state.status = {}
+        createFailure(state,error) {
+            state.all = { error }
         },
         deleteSuccess(state, id) {
             const itemIndex = state.all.items.findIndex((item) => item.id === id);

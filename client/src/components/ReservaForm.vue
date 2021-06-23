@@ -124,9 +124,6 @@ export default {
       valid: true,
       submitted: false,
       comensales: null,
-      rules: {
-        email: (v) => /.+@.+\..+/.test(v) || "E-mail must be valid",
-      },
     };
   },
   methods: {

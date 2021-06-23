@@ -60,9 +60,6 @@ export default {
     user() {
       return this.$store.state.authentication.user;
     },
-    users() {
-      return this.$store.state.users.all;
-    },
     alert() {
       return this.$store.state.alert;
     },
