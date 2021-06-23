@@ -19,14 +19,11 @@ export const router = new Router({
     { path: '/guachincheregister', component: GuachincheRegisterPage},
     { path: '/myreservas', component: ReservasPage},
     { path: '/user/:id', component: UserPage },
-
-    // otherwise redirect to home
     { path: '*', redirect: '/' }
   ]
 });
 
 router.beforeEach((to, from, next) => {
-  // redirect to login page if not logged in and trying to access a restricted page
   const publicPages = ['/login', '/signup'];
   const authRequired = !publicPages.includes(to.path);
   const loggedIn = localStorage.getItem('user');

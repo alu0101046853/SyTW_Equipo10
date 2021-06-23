@@ -55,13 +55,10 @@
 
 <script>
 export default {
-  name: "app",
+  name: "Header",
   computed: {
     user() {
       return this.$store.state.authentication.user;
-    },
-    users() {
-      return this.$store.state.users.all;
     },
     alert() {
       return this.$store.state.alert;

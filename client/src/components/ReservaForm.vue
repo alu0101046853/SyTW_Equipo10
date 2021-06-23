@@ -14,12 +14,14 @@
               <v-col cols="12">
                 <v-text-field
                   label="Nombre de la reserva"
+                  id="reservoir-name"
                   v-model="name"
                 ></v-text-field>
               </v-col>
               <v-col cols="12">
                 <v-text-field
                   label="Número de comensales"
+                  id="guest-number"
                   v-model.number="comensales"
                 ></v-text-field>
               </v-col>
@@ -122,9 +124,6 @@ export default {
       valid: true,
       submitted: false,
       comensales: null,
-      rules: {
-        email: (v) => /.+@.+\..+/.test(v) || "E-mail must be valid",
-      },
     };
   },
   methods: {

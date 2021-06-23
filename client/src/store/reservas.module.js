@@ -19,7 +19,7 @@ export const reservas = {
             .then(
                 reserva => {
                     commit('deleteSuccess', reserva, id)
-                    dispatch('alert/success', "reserva borrado con éxito", {root: true});
+                    dispatch('alert/success', "Reserva borrada con éxito", {root: true});
                 },
                 error => {
                     dispatch('alert/error', error, {root: true});

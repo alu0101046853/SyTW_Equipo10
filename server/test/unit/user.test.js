@@ -68,7 +68,7 @@ const users = [{
   });
 
   describe('POST /users/authenticate', () => {
-    it('should login user and return auh token', (done) => {
+    it('should login user and return auth token', (done) => {
       request(app)
       .post('/users/authenticate')
       .send({

@@ -25,8 +25,8 @@
 <script>
 import GuachincheCard from "@/components/GuachincheCard.vue";
 export default {
-  components: { GuachincheCard },
   name: "Guachinches",
+  components: { GuachincheCard },
   data() {
     return {
       filtro: false,

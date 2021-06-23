@@ -2,7 +2,6 @@ const express = require('express');
 const router = express.Router();
 const guachincheService = require('./guachinche.service');
 
-// routes
 router.post('/register', register);
 router.get('/', getAll);
 router.get('/:id', getById);

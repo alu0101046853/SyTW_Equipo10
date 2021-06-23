@@ -1,7 +1,7 @@
 <template>
   <div class="reservas-table">
     <v-app>
-      <v-simple-table class="tablita">
+      <v-simple-table class="tablita" v-if="loading">
         <template v-slot:default>
           <thead>
             <tr>
@@ -10,6 +10,7 @@
               <th class="text-left">Fecha</th>
               <th class="text-left">Hora</th>
               <th class="text-left">Comensales</th>
+              <th class="text-left"></th>
             </tr>
           </thead>
           <tbody>
@@ -19,6 +20,7 @@
               <td>{{ getDate(item.date) }}</td>
               <td>{{ item.time }}</td>
               <td>{{ item.comensales }}</td>
+              <td><v-btn color="error" @click="handleDelete(item.id)">Borrar Reserva</v-btn></td>
             </tr>
           </tbody>
         </template>
@@ -32,22 +34,29 @@ export default {
   name: "ReservasPage",
   methods: {
     getGuachincheName(id) {
-      const item = this.guachinches.items.find((item) => id === item.id);
-      return item.name;
+        const item = this.guachinches.items.find((item) => id === item.id);
+        return item.name;
     },
     getDate(date) {
       const pepe = date;
       const index = pepe.indexOf("T");
       return pepe.slice(0, index);
     },
+    handleDelete(id){
+      const { dispatch } = this.$store;
+      dispatch("reservas/_delete", { id });
+    }
   },
   computed: {
-    guachinches() {
-      return this.$store.state.guachinches.all;
-    },
     reservas() {
       return this.$store.state.reservas.all;
     },
+    guachinches(){
+      return this.$store.state.guachinches.all
+    },
+    loading () {
+      return this.$store.state.guachinches.status.loading;
+    }
   },
   created() {
     this.$store.dispatch("guachinches/getAll");
